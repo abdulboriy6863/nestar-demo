@@ -1,6 +1,8 @@
+import { NextPage } from "next";
 import { useState } from "react";
+import withLayoutBasic from "../libs/components/layout/LayoutBasic";
 
-const Community = () => {
+const Community: NextPage = () => {
   console.log("Community Component Page Router");
   const [title, setTitle] = useState<string>("hello");
   return (
@@ -14,4 +16,4 @@ const Community = () => {
   );
 };
 
-export default Community;
+export default withLayoutBasic(Community);
