@@ -1,5 +1,8 @@
 import { Stack } from "@mui/material";
 import Head from "next/head";
+import Top from "../Top";
+import Footer from "../Footer";
+import HeaderFilter from "../homePage/HeaderFilter";
 
 const withLayoutMain = (Component: any) => {
   return (props: any) => {
@@ -9,12 +12,19 @@ const withLayoutMain = (Component: any) => {
           <title>Nestar</title>
         </Head>
         <Stack id="pc-wrap">
-          <Stack> Header Home</Stack>
+          <Stack id="top">
+            <Top />
+          </Stack>
+          <Stack className="header-main">
+            <HeaderFilter />
+          </Stack>
 
           <Stack id="main">
             <Component {...props} />
           </Stack>
-          <Stack>Footer</Stack>
+          <Stack id="footer">
+            <Footer />
+          </Stack>
         </Stack>
       </>
     );
