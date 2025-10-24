@@ -1,15 +1,15 @@
-import { Box, Container, Stack } from "@mui/material";
-import { NextPage } from "next";
-import withLayoutBasic from "../libs/components/layout/LayoutBasic";
+import withLayoutBasic from "@/libs/components/layout/LayoutBasic";
+import useDeviceDetect from "@/libs/hooks/useDeviceDetect";
+import { Container, Stack } from "@mui/material";
 
-const PropertyDetail: NextPage = () => {
-  console.log("Property Component Page Router");
-
-  return (
-    <>
-      <Container>PROPERTY DETAIL</Container>
-    </>
-  );
+const PropertyDetail = () => {
+    const device = useDeviceDetect();
+    
+    if (device === "mobile") {
+        return <Stack>PROPERtY DETAIL MOBILE</Stack>
+    } else {
+        return <Container>PROPERTY DETAIL</Container>;    
+    }
 };
 
 export default withLayoutBasic(PropertyDetail);
